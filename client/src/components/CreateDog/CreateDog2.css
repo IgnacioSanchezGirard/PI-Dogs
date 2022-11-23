@@ -1,0 +1,139 @@
+.headerform {
+    
+    color: #ffb703;
+    font-style: oblique;
+    font-size: 3rem;
+    border-radius: 3rem;
+    box-shadow: inset 0px -6px 40px 30px rgba(5, 114, 239, 0.53);
+  }
+  
+  form,
+  input,
+  selector,
+  option {
+    font-family: fantasy;
+    text-align: center;
+  }
+  
+  input {
+    background-color: rgb(202, 202, 202);
+  }
+  
+  .contenedor {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    color: #3a4e5f;
+    background-color: #14213d;
+    height: 100vh;
+  
+  }
+  
+  .form-g {
+    display: flex;
+    flex-direction: row;
+    font-size: large;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .form-g span {
+    margin: 0px
+  }
+  
+  input {
+    font-size: 16pt;
+    color: rgb(54, 47, 47);
+  }
+  
+  label,
+  input,
+  button,
+  select,
+  option {
+    padding: 0.5rem;
+    margin: 0.3rem;
+    
+    border-radius: 1rem;
+    box-shadow: inset 0px 0px 10px 0 rgba(20, 20, 20, 0.2);
+  }
+  
+  button,
+  select {
+    background: linear-gradient(to right, #3a4e5f, #374049, #3a4e5f);
+    border: none;
+    color: rgba(255, 255, 255, 0.836);
+    padding: 0.5rem 0.5rem;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    opacity: 1;
+  max-width: 15rem;
+    font-family: fantasy;
+  }
+  
+  .form {
+    max-width: 40%;
+    border-radius: 4rem;
+    line-height: 24pt;
+    letter-spacing: 2px;
+    height: fit-content;
+    object-fit: cover;
+    font-size: 1rem;
+    text-decoration: dotted;
+    text-align: center;
+    background: #22223b;
+    padding-bottom: 1%;
+    color: #ffb703;
+    margin: 14px;
+    box-shadow: inset 30px 10px 30px 30px rgba(20, 20, 20, 0.534);
+    font-style: italic;
+    font-size: xx-large;
+  }
+  
+  .formdetail {
+    display: flex;
+  
+  }
+
+  .formdetail button {
+    margin: 20px 0px
+  }
+  
+  .form {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+  
+    text-align: center;
+    width: 70%;
+    height: fit-content;
+    padding: 2%;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .error{
+    color: red;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 15px;
+  }
+  
+  select option {
+    background-color: #374049;
+    color: whitesmoke;
+  }
+
+  .tempsCont{
+    background-color: #374049;
+    border-radius: 1rem;
+    width: 225px;
+  }
+
+  .tempsCont p{
+    margin: 0;
+  }

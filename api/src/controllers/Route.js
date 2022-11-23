@@ -38,8 +38,13 @@ const GetId = async (id) => {
         //     {
         //   include: Temper,
         // })
-        const findDog = dogId.find(el => el.id === parseInt(id))
-        if(!findDog) {
+        let findDog = dogId.find(el => el.id === parseInt(id))
+        
+        if(id.length > 3){
+          findDog = await Dog.findByPk(id)
+        }
+        console.log(typeof id);
+        if(!Object.keys(findDog).length) {
             throw new Error (`Dog whith id ${id} not found`)
         }
         return findDog;

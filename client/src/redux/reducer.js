@@ -8,15 +8,15 @@ import {
   ORDER_BY_WEIGHT,
   ORDER_BY_BD,
   CLEAR_DOG,
-  ERROR,
   ORDER_BY_TEMPS,
 } from "./actions";
 
 const initialState = {
   Dogs: [],
   Dogs2: [],
-  dogDetail: [],
+  dogDetail:[],
   error: {},
+  temperaments: []
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -31,14 +31,14 @@ export default function rootReducer(state = initialState, action) {
     case ORDER_BY_NAME:
       let dogSorted =
         action.payload === "Asc"
-          ? state.allDogs.sort((a, b) => {
+          ? state.Dogs.sort((a, b) => {
               if (a.name > b.name) return 1;
               if (a.name < b.name) return -1;
               return 0;
             })
-          : state.allDogs.sort((b, a) => {
-              if (a.name > b.name) return 1;
-              if (a.name < b.name) return -1;
+          : state.Dogs.sort((a, b) => {
+              if (a.name > b.name) return -1;
+              if (a.name < b.name) return 1;
               return 0;
             });
 
@@ -50,12 +50,12 @@ export default function rootReducer(state = initialState, action) {
     case ORDER_BY_WEIGHT:
       let sorted2 =
         action.payload === "orderHEAVY"
-          ? state.allDogs.sort((b, a) => {
+          ? state.Dogs.sort((b, a) => {
               if (parseInt(a.weight) > parseInt(b.weight)) return 1;
               if (parseInt(a.weight) < parseInt(b.weight)) return -1;
               return 0;
             })
-          : state.allDogs.sort((a, b) => {
+          : state.Dogs.sort((a, b) => {
               if (parseInt(a.weight) > parseInt(b.weight)) return 1;
               if (parseInt(a.weight) < parseInt(b.weight)) return -1;
               return 0;
@@ -66,17 +66,31 @@ export default function rootReducer(state = initialState, action) {
       };
 
     case ORDER_BY_BD:
-      const orderCreated =
-        action.payload === "orderBD"
-          ? state.allDogs2.filter((el) => el.createdAt)
-          : state.allDogs2.filter((el) => !el.createdAt);
+      const totaldogs = state.Dogs2
+      let orderCreated =
+        action.payload === "Show BD dogs"
+          ? totaldogs.filter((el) => el.CreateDB)
+          : action.payload === "Show API dogs"
+          ? totaldogs.filter((el) => !el.CreateDB)
+          : ""
+          console.log(orderCreated);
       return {
         ...state,
-        allDogs:
-          action.payload === "orderALL"
-            ? Array.from(new Set(state.allDogs.concat(state.allDogs2)))
-            : orderCreated,
+        Dogs: orderCreated
       };
+
+      // const totaldogs = state.Dogs2
+      // const orderCreated =
+      //   action.payload === "Show API dogs"
+      //     ? state.totaldogs.filter((el) => el.CreateDB)
+      //     : state.totaldogs.filter((el) => !el.CreateDB);
+      // return {
+      //   ...state,
+      //   Dogs:
+      //     action.payload === "Show BD dogs"
+      //       ? Array.from(new Set(state.Dogs.concat(state.Dogs2)))
+      //       : orderCreated,
+      // };
 
     case GET_DETAIL:
       return {
@@ -87,32 +101,24 @@ export default function rootReducer(state = initialState, action) {
     case GET_TEMPS:
       return {
         ...state,
-        temperaments: action.payload,
+        temperaments: [...action.payload],
       };
 
     case ORDER_BY_TEMPS:
-      const sorted =
-        action.payload === "Asc"
-          ? state.Dogs.sort((a, b) => {
-              if (a.name > b.name) return 1;
-              if (a.name < b.name) return -1;
-              return 0;
-            })
-          : state.Dogs.sort((b, a) => {
-              if (a.name > b.name) return 1;
-              if (a.name < b.name) return -1;
-            });
+      const AllDogs = state.Dogs2;
+      const dogTemp = AllDogs.filter(dog => dog.temperament.includes(action.payload))
+      console.log(dogTemp);
       return {
         ...state,
-        Dogs: sorted,
-      };
-
-    case GET_DOG_NAME:
-      return {
-        ...state,
-        allDogs: action.payload,
-      };
-
+        Dogs: dogTemp
+      }
+      
+      case GET_DOG_NAME:
+        return {
+          ...state,
+          Dogs: action.payload,
+        };
+        
     case CREATE_DOG:
       return {
         ...state,
@@ -123,12 +129,6 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         dogDetail: [],
       };
-
-    // case ERROR:
-    //   return {
-    //     ...state,
-    //     error: action.payload,
-    //   };
 
     default:
       return state;

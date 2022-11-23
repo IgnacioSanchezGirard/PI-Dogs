@@ -1,11 +1,12 @@
 import { Route } from 'react-router-dom';
 import './App.css';
-import CardDog from './components/CardDog';
-import DogDetail from './components/DogDetail';
-import Form from './components/Form';
-import Home from './components/Home';
-import LandingPage from './components/landingPage';
-import Navbar from './components/Navbar';
+// import CardDog from './components/CardDog/CardDog';
+import DogDetail from './components/DogDetail/DogDetail';
+// import Searchbar from './components/SerchBar/SearchBar'
+import Home from './components/Home/Home';
+import LandingPage from './components/LandingPage/LandingPage';
+// import Navbar from './components/NavBar/Navbar';
+import Formdog from './components/CreateDog/CreateDogs2';
 
 
 function App() {
@@ -16,16 +17,16 @@ function App() {
       </Route>
 
       <Route path= "/Home" >
-        <Navbar/>
         <Home/>
       </Route>
 
-      <Route path= "/Detail/:id" >
+      <Route path= "/dogs/:id" >
         <DogDetail/>
       </Route>
 
       <Route path= "/Create" >
-        <Form/>
+        {/* <CreateDog/> */}
+        <Formdog/>
       </Route>
     </div>
   );

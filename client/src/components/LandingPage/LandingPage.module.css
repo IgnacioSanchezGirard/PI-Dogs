@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@600&display=swap');
+
+.background {
+  background-image: url('../../img/perro_1.jpg');
+  min-height: 100%;
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 10;
+  left: 0;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.h1 {
+  color: #023047;
+  font-size: 6vh;
+  padding: 5vh;
+  margin-left: 22vh;
+}
+.h2 {
+  padding-left: 22vh;
+  padding-top: 15vh;
+  font-weight: lighter;
+  font-size: 30px;
+  max-width: 15%;
+  color: #023047;
+  line-height: 45px;
+}
+.divBtn {
+  padding-left: 26vh;
+  padding-bottom: 5vh;
+  padding-top: 5vh;
+  
+}
+.img {
+  position: relative;
+  bottom: 30px;
+  width: 160px;
+  height: 70px;
+}
+.span {
+  color: #023047;
+  padding-left: 29.5vh;
+  padding-top: -1vh;
+  font-size: 23px;
+  margin-left: -1.5vh;
+  
+}
+
+.box {
+  width: 300px;
+  height: 100px;
+  transition: 0.7s linear;
+  position: relative;
+  left: -65px;
+  display: block;
+  overflow: hidden;
+  padding: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  
+  font-family: 'Montserrat' ;
+  font-weight: bolder;
+}
+
+.box span{
+  position: absolute;
+  left: 140px;
+  top: 30px;
+  color: #023047;
+}
+
+.box img{
+  padding: 20px;
+}
+
+button.landing {
+  color: rgba(255, 255, 255, 0);
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 10px;
+}

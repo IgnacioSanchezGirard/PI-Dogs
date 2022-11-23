@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@600&display=swap');
+
+.main{
+    background-color: #14213d;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: -60px;
+}
+
+.h1{
+  color: #ffb703;
+  font-size: 6vh;
+  padding: 5vh;
+  border-bottom: 5px solid;
+  margin-left: 10vh;
+  font-family: 'Montserrat' ;
+}
+
+.card{
+    margin-top: 5vh;
+    --border-radius: 15px;
+    --border-width: 4px;
+    appearance: none;
+    position: relative;
+    padding: 1em 2em;
+    border: 0;
+    background: rgb(5, 5, 22);
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    z-index: 2;
+    border-radius: 15px;
+    margin-bottom: 34px;
+}
+
+
+.card::after {
+ --m-i: linear-gradient(#000, #000);
+ --m-o: content-box, padding-box;
+ content: "";
+ position: absolute;
+ left: 0;
+ top: 0;
+ width: 100%;
+ height: 100%;
+ padding: var(--border-width);
+ border-radius: var(--border-radius);
+ background-image: conic-gradient(
+		#488cfb,
+		#29dbbc,
+		#ddf505,
+		#ff9f0e,
+		#e440bb,
+		#655adc,
+		#488cfb
+	);
+ -webkit-mask-image: var(--m-i), var(--m-i);
+ mask-image: var(--m-i), var(--m-i);
+ -webkit-mask-origin: var(--m-o);
+ mask-origin: var(--m-o);
+ /* -webkit-mask-clip: var(--m-o); */
+ mask-composite: exclude;
+ -webkit-mask-composite: destination-out;
+ filter: hue-rotate(0);
+ animation: rotate-hue linear 500ms infinite;
+ animation-play-state: paused;
+}
+
+.card:hover::after {
+ animation-play-state: running;
+}
+
+@keyframes rotate-hue {
+ to {
+  filter: hue-rotate(1turn);
+ }
+}
+
+.card,
+.card::after {
+ box-sizing: border-box;
+}
+
+.card:active {
+ --border-width: 5px;
+}
+.img{
+   border-radius:10%;
+   width:700px;
+   height:500px;
+   border:2px solid white;
+}
+
+.loader{
+    border-radius: 50%;
+}
+
+.load{
+    height: 750px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

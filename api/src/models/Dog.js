@@ -33,6 +33,10 @@ module.exports = (sequelize) => {
     },
     temperament: {
       type: DataTypes.STRING,
+    },
+    CreateDB: {
+      type: DataTypes.BOOLEAN,
+      defaultValue:true
     }
   }, { timestamps: false });
 };
